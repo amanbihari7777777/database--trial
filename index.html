@@ -3,141 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman Writing Animation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <title>Stylish Aman Signature</title>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Alex+Brush&family=Mr+De+Haviland&display=swap" rel="stylesheet">
     <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             margin: 0;
             overflow: hidden;
+            animation: fadeIn 1.5s ease-out;
         }
         
-        .writing-container {
+        .luxury-card {
             position: relative;
-            width: 80%;
-            max-width: 800px;
-        }
-        
-        .paper {
-            background-color: white;
-            padding: 40px;
-            border-radius: 5px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
+            width: 70vmin;
+            height: 50vmin;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             overflow: hidden;
+            padding: 40px;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
         
-        .paper::before {
-            content: "";
+        .card-texture {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 15px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), transparent);
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            opacity: 0.6;
+            z-index: 0;
         }
         
-        .text {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
+        .gold-border {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #d4af37, #f9d423, #d4af37);
+            border-image-slice: 1;
+            border-radius: 10px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .signature-container {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .signature-text {
+            font-family: 'Alex Brush', cursive;
+            font-size: 5rem;
             color: #333;
             white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid #ff6b6b;
-            animation: blink-caret 0.75s step-end infinite;
+            position: relative;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 2s forwards 0.5s;
         }
         
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #ff6b6b; }
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        .pen {
+        .animated-stroke {
             position: absolute;
-            right: -30px;
-            bottom: -20px;
-            width: 60px;
-            height: 15px;
-            background: #333;
-            transform: rotate(30deg);
-            z-index: 10;
-            animation: pen-move 4s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(255,215,0,0.1) 50%, transparent 100%);
+            animation: stroke-animation 3.5s ease-in-out forwards 1s;
         }
         
-        .pen:before {
+        @keyframes stroke-animation {
+            to { width: 100%; }
+        }
+        
+        .ink-effect {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(0,0,0,0) 70%);
+            top: -25%;
+            left: -25%;
+            opacity: 0;
+            animation: ink-spread 2s ease-out forwards 2s;
+        }
+        
+        @keyframes ink-spread {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 0.3; }
+            100% { opacity: 0; transform: scale(1); }
+        }
+        
+        .fountain-pen {
+            position: absolute;
+            right: -50px;
+            bottom: -30px;
+            width: 120px;
+            height: 20px;
+            background: #111;
+            transform: rotate(25deg);
+            z-index: 10;
+            opacity: 0;
+            animation: pen-appear 2s ease-out forwards 0.5s;
+        }
+        
+        .fountain-pen:before {
             content: "";
             position: absolute;
-            top: -10px;
-            left: 5px;
-            width: 10px;
-            height: 35px;
-            background: linear-gradient(to bottom, #ff6b6b, #ff8e8e);
-            border-radius: 5px;
+            top: -15px;
+            left: 10px;
+            width: 15px;
+            height: 50px;
+            background: linear-gradient(to bottom, #d4af37, #f9d423);
+            border-radius: 3px 3px 8px 8px;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
         }
         
-        @keyframes pen-move {
-            0%, 100% { transform: rotate(30deg) translateY(0); }
-            50% { transform: rotate(25deg) translateY(-10px); }
-        }
-        
-        .ink-blot {
+        .fountain-pen:after {
+            content: "";
             position: absolute;
-            width: 30px;
-            height: 30px;
-            background: rgba(255, 107, 107, 0.2);
-            border-radius: 50%;
-            filter: blur(5px);
-            opacity: 0;
-            animation: ink-appear 4s infinite;
+            top: 35px;
+            left: 12px;
+            width: 11px;
+            height: 3px;
+            background: #333;
+            border-radius: 0 0 3px 3px;
         }
         
-        @keyframes ink-appear {
-            0%, 100% { opacity: 0; transform: scale(0.5); }
-            50% { opacity: 0.3; transform: scale(1); }
+        @keyframes pen-appear {
+            0% { opacity: 0; transform: rotate(25deg) translateY(30px); }
+            100% { opacity: 1; transform: rotate(25deg) translateY(0); }
+        }
+        
+        .signature-line {
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(to right, transparent 0%, #d4af37 50%, transparent 100%);
+            margin-top: 20px;
+            opacity: 0;
+            animation: line-appear 2s ease-out forwards 3s;
+        }
+        
+        @keyframes line-appear {
+            to { opacity: 0.7; }
+        }
+        
+        .floating-dust {
+            position: absolute;
+            background: rgba(0,0,0,0.05);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <div class="writing-container">
-        <div class="paper">
-            <div id="animated-text" class="text"></div>
-            <div class="ink-blot" style="top: 20%; left: 15%;"></div>
-            <div class="ink-blot" style="top: 70%; right: 10%; animation-delay: 0.5s;"></div>
+    <div class="luxury-card">
+        <div class="card-texture"></div>
+        <div class="gold-border"></div>
+        <div class="signature-container">
+            <div class="signature-text" id="animated-signature">
+                Aman Raj
+                <div class="animated-stroke"></div>
+                <div class="ink-effect"></div>
+            </div>
+            <div class="signature-line"></div>
         </div>
-        <div class="pen"></div>
+        <div class="fountain-pen"></div>
     </div>
 
     <script>
-        const text = "Aman";
-        const element = document.getElementById("animated-text");
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 300); // typing speed
-            } else {
-                // Animation complete - you can add additional effects here
-            }
+        // Create floating dust particles
+        for (let i = 0; i < 15; i++) {
+            createDust();
         }
         
-        // Start the animation
-        setTimeout(typeWriter, 1000);
+        function createDust() {
+            const dust = document.createElement('div');
+            dust.classList.add('floating-dust');
+            
+            // Random properties
+            const size = Math.random() * 10 + 5;
+            const posX = Math.random() * 100;
+            const delay = Math.random() * 15;
+            const duration = Math.random() * 10 + 15;
+            
+            dust.style.width = `${size}px`;
+            dust.style.height = `${size}px`;
+            dust.style.left = `${posX}%`;
+            dust.style.bottom = `-${size}px`;
+            dust.style.animationDelay = `${delay}s`;
+            dust.style.animationDuration = `${duration}s`;
+            
+            document.body.appendChild(dust);
+        }
         
-        // Add slight paper tilt animation
-        const paper = document.querySelector('.paper');
-        paper.style.transform = 'rotate(1deg)';
+        // Signature reveal animation
+        const signature = document.getElementById('animated-signature');
+        const letters = signature.textContent.trim();
+        signature.textContent = '';
         
-        // Mouse move effect for paper tilt
+        letters.split('').forEach((letter, i) => {
+            const span = document.createElement('span');
+            span.textContent = letter;
+            span.style.display = 'inline-block';
+            span.style.opacity = '0';
+            span.style.transform = 'translateY(20px)';
+            span.style.animation = `fadeUp 0.5s forwards ${i * 0.2 + 1}s`;
+            signature.appendChild(span);
+        });
+        
+        // 3D tilt effect
+        const card = document.querySelector('.luxury-card');
+        
         document.addEventListener('mousemove', (e) => {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            paper.style.transform = `rotate3d(${y * 2 - 1}, ${x * 2 - 1}, 0, 8deg)`;
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+        
+        // Reset position when mouse leaves
+        document.addEventListener('mouseleave', () => {
+            card.style.transform = 'rotateY(0deg) rotateX(0deg)';
         });
     </script>
 </body>

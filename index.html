@@ -1,262 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stylish Aman Signature</title>
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Alex+Brush&family=Mr+De+Haviland&display=swap" rel="stylesheet">
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            margin: 0;
-            overflow: hidden;
-            animation: fadeIn 1.5s ease-out;
-        }
-        
-        .luxury-card {
-            position: relative;
-            width: 70vmin;
-            height: 50vmin;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            overflow: hidden;
-            padding: 40px;
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-        
-        .card-texture {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
-            opacity: 0.6;
-            z-index: 0;
-        }
-        
-        .gold-border {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 2px solid transparent;
-            border-image: linear-gradient(45deg, #d4af37, #f9d423, #d4af37);
-            border-image-slice: 1;
-            border-radius: 10px;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .signature-container {
-            position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 2;
-        }
-        
-        .signature-text {
-            font-family: 'Alex Brush', cursive;
-            font-size: 5rem;
-            color: #333;
-            white-space: nowrap;
-            position: relative;
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 2s forwards 0.5s;
-        }
-        
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animated-stroke {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(to right, transparent 0%, rgba(255,215,0,0.1) 50%, transparent 100%);
-            animation: stroke-animation 3.5s ease-in-out forwards 1s;
-        }
-        
-        @keyframes stroke-animation {
-            to { width: 100%; }
-        }
-        
-        .ink-effect {
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(0,0,0,0) 70%);
-            top: -25%;
-            left: -25%;
-            opacity: 0;
-            animation: ink-spread 2s ease-out forwards 2s;
-        }
-        
-        @keyframes ink-spread {
-            0% { opacity: 0; transform: scale(0.5); }
-            50% { opacity: 0.3; }
-            100% { opacity: 0; transform: scale(1); }
-        }
-        
-        .fountain-pen {
-            position: absolute;
-            right: -50px;
-            bottom: -30px;
-            width: 120px;
-            height: 20px;
-            background: #111;
-            transform: rotate(25deg);
-            z-index: 10;
-            opacity: 0;
-            animation: pen-appear 2s ease-out forwards 0.5s;
-        }
-        
-        .fountain-pen:before {
-            content: "";
-            position: absolute;
-            top: -15px;
-            left: 10px;
-            width: 15px;
-            height: 50px;
-            background: linear-gradient(to bottom, #d4af37, #f9d423);
-            border-radius: 3px 3px 8px 8px;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
-        }
-        
-        .fountain-pen:after {
-            content: "";
-            position: absolute;
-            top: 35px;
-            left: 12px;
-            width: 11px;
-            height: 3px;
-            background: #333;
-            border-radius: 0 0 3px 3px;
-        }
-        
-        @keyframes pen-appear {
-            0% { opacity: 0; transform: rotate(25deg) translateY(30px); }
-            100% { opacity: 1; transform: rotate(25deg) translateY(0); }
-        }
-        
-        .signature-line {
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(to right, transparent 0%, #d4af37 50%, transparent 100%);
-            margin-top: 20px;
-            opacity: 0;
-            animation: line-appear 2s ease-out forwards 3s;
-        }
-        
-        @keyframes line-appear {
-            to { opacity: 0.7; }
-        }
-        
-        .floating-dust {
-            position: absolute;
-            background: rgba(0,0,0,0.05);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Snake Skeleton Reptile</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #000;
+      touch-action: none;
+      cursor: none;
+    }
+
+    #reptile-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .bone-segment {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #e0e0e0;
+      border-radius: 50%;
+      transform-origin: center;
+      box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.3),
+                  0 0 8px rgba(255, 255, 255, 0.5);
+      opacity: 0.9;
+      border: 1px solid #bbb;
+    }
+
+    .bone-connector {
+      position: absolute;
+      height: 4px;
+      background-color: #999;
+      transform-origin: left center;
+      opacity: 0.6;
+      border-radius: 2px;
+    }
+
+    #head {
+      width: 34px;
+      height: 34px;
+      background-color: #f8f8f8;
+      border-radius: 50%;
+      position: absolute;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+      border: 1px solid #bbb;
+    }
+
+    .eye {
+      display: none; /* hide eyes for skeleton effect */
+    }
+  </style>
 </head>
 <body>
-    <div class="luxury-card">
-        <div class="card-texture"></div>
-        <div class="gold-border"></div>
-        <div class="signature-container">
-            <div class="signature-text" id="animated-signature">
-                Aman Raj
-                <div class="animated-stroke"></div>
-                <div class="ink-effect"></div>
-            </div>
-            <div class="signature-line"></div>
-        </div>
-        <div class="fountain-pen"></div>
-    </div>
+  <div id="reptile-container">
+    <div id="head"></div>
+    <!-- Bone segments will be added by JavaScript -->
+  </div>
 
-    <script>
-        // Create floating dust particles
-        for (let i = 0; i < 15; i++) {
-            createDust();
+  <script>
+    const segmentCount = 12;
+    const segments = [];
+    const connectors = [];
+    const head = document.getElementById('head');
+    const container = document.getElementById('reptile-container');
+
+    function addRibs(segment) {
+      const ribCount = 4;
+      for (let j = 0; j < ribCount; j++) {
+        const rib = document.createElement('div');
+        rib.style.position = 'absolute';
+        rib.style.width = `${10 + j * 2}px`;
+        rib.style.height = '2px';
+        rib.style.backgroundColor = '#ccc';
+        rib.style.top = '50%';
+        rib.style.left = '50%';
+        rib.style.transform = `translate(-50%, -50%) rotate(${j % 2 === 0 ? -60 : 60}deg)`;
+        rib.style.opacity = '0.5';
+        segment.appendChild(rib);
+      }
+    }
+
+    // Create bone segments and connectors
+    for (let i = 0; i < segmentCount; i++) {
+      const segment = document.createElement('div');
+      segment.className = 'bone-segment';
+      segment.style.left = '50px';
+      segment.style.top = '50px';
+      addRibs(segment);
+      container.appendChild(segment);
+      segments.push(segment);
+
+      if (i > 0) {
+        const connector = document.createElement('div');
+        connector.className = 'bone-connector';
+        container.appendChild(connector);
+        connectors.push(connector);
+      }
+    }
+
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+
+    // Track mouse/touch position
+    document.addEventListener('mousemove', (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      targetX = e.touches[0].clientX;
+      targetY = e.touches[0].clientY;
+    }, { passive: false });
+
+    // Animation loop
+    function animate() {
+      const headX = parseFloat(head.style.left || 0);
+      const headY = parseFloat(head.style.top || 0);
+
+      const newHeadX = headX + (targetX - headX) * 0.1;
+      const newHeadY = headY + (targetY - headY) * 0.1;
+
+      head.style.left = newHeadX + 'px';
+      head.style.top = newHeadY + 'px';
+
+      const angle = Math.atan2(targetY - headY, targetX - headX) * 180 / Math.PI;
+      head.style.transform = `rotate(${angle}deg)`;
+
+      let prevX = newHeadX;
+      let prevY = newHeadY;
+
+      for (let i = 0; i < segments.length; i++) {
+        const segment = segments[i];
+        const segX = parseFloat(segment.style.left || 0);
+        const segY = parseFloat(segment.style.top || 0);
+
+        const newSegX = segX + (prevX - segX) * 0.2;
+        const newSegY = segY + (prevY - segY) * 0.2;
+
+        segment.style.left = newSegX + 'px';
+        segment.style.top = newSegY + 'px';
+
+        const segAngle = Math.atan2(prevY - newSegY, prevX - newSegX) * 180 / Math.PI;
+        segment.style.transform = `rotate(${segAngle}deg)`;
+
+        if (i > 0) {
+          const connector = connectors[i - 1];
+          const connectorLength = Math.sqrt(
+            Math.pow(newSegX - prevX, 2) +
+            Math.pow(newSegY - prevY, 2)
+          );
+
+          connector.style.width = `${connectorLength}px`;
+          connector.style.left = `${prevX}px`;
+          connector.style.top = `${prevY}px`;
+
+          const connectorAngle = Math.atan2(newSegY - prevY, newSegX - prevX) * 180 / Math.PI;
+          connector.style.transform = `rotate(${connectorAngle}deg)`;
         }
-        
-        function createDust() {
-            const dust = document.createElement('div');
-            dust.classList.add('floating-dust');
-            
-            // Random properties
-            const size = Math.random() * 10 + 5;
-            const posX = Math.random() * 100;
-            const delay = Math.random() * 15;
-            const duration = Math.random() * 10 + 15;
-            
-            dust.style.width = `${size}px`;
-            dust.style.height = `${size}px`;
-            dust.style.left = `${posX}%`;
-            dust.style.bottom = `-${size}px`;
-            dust.style.animationDelay = `${delay}s`;
-            dust.style.animationDuration = `${duration}s`;
-            
-            document.body.appendChild(dust);
-        }
-        
-        // Signature reveal animation
-        const signature = document.getElementById('animated-signature');
-        const letters = signature.textContent.trim();
-        signature.textContent = '';
-        
-        letters.split('').forEach((letter, i) => {
-            const span = document.createElement('span');
-            span.textContent = letter;
-            span.style.display = 'inline-block';
-            span.style.opacity = '0';
-            span.style.transform = 'translateY(20px)';
-            span.style.animation = `fadeUp 0.5s forwards ${i * 0.2 + 1}s`;
-            signature.appendChild(span);
-        });
-        
-        // 3D tilt effect
-        const card = document.querySelector('.luxury-card');
-        
-        document.addEventListener('mousemove', (e) => {
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        });
-        
-        // Reset position when mouse leaves
-        document.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-        });
-    </script>
+
+        prevX = newSegX;
+        prevY = newSegY;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    function initPositions() {
+      const startX = window.innerWidth / 2;
+      const startY = window.innerHeight / 2;
+
+      head.style.left = startX + 'px';
+      head.style.top = startY + 'px';
+
+      for (let i = 0; i < segments.length; i++) {
+        segments[i].style.left = (startX - (i + 1) * 30) + 'px';
+        segments[i].style.top = startY + 'px';
+      }
+
+      targetX = startX;
+      targetY = startY;
+    }
+
+    window.addEventListener('resize', initPositions);
+    initPositions();
+    animate();
+  </script>
 </body>
 </html>
